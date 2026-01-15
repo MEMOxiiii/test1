@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ClassDiagram>
+    <Class name="com.example.smartviewer.MySocket" x="-1" y="153">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+        <Association
+            destinationClassName="com.example.smartviewer.CommandPackage"
+            endpointName="waitCommandActionQueueBackup" kind="Simple">
+            <Point x="342" y="242"/>
+        </Association>
+        <Association
+            destinationClassName="com.example.smartviewer.CommandPackage"
+            endpointName="currentCommmandAction" kind="Simple">
+            <Point x="361" y="201"/>
+        </Association>
+        <Association
+            destinationClassName="com.example.smartviewer.CommandPackage"
+            endpointName="cycleCommandActionQueueBackupForPause" kind="Simple">
+            <Point x="308" y="359"/>
+        </Association>
+        <Association
+            destinationClassName="com.example.smartviewer.CommandPackage"
+            endpointName="cycleCommandActionQueue" kind="Simple">
+            <Point x="298" y="463"/>
+        </Association>
+        <Association
+            destinationClassName="com.example.smartviewer.CommandPackage"
+            endpointName="cycleCommandActionQueueBackup" kind="Simple">
+            <Point x="307" y="287"/>
+        </Association>
+        <Association
+            destinationClassName="com.example.smartviewer.ModbusCommandPacker"
+            endpointName="modbusCommandPacker" kind="Simple"/>
+        <Association
+            destinationClassName="com.example.smartviewer.CommandPackage"
+            endpointName="waitCommandActionQueue" kind="Simple">
+            <Point x="291" y="414"/>
+        </Association>
+        <Association
+            destinationClassName="com.example.smartviewer.AHCommandPacker"
+            endpointName="ahCommandPacker" kind="Simple"/>
+        <Communication destinationClassName="com.example.smartviewer.ModbusCommandPacker"/>
+        <Communication destinationClassName="com.example.smartviewer.AHCommandPacker"/>
+        <Communication destinationClassName="com.example.smartviewer.CommandPackage"/>
+    </Class>
+    <Class name="com.example.smartviewer.ModbusCommandPacker" x="183" y="83">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+        <Extension destinationClassName="com.example.smartviewer.CommandPacker"/>
+        <Communication destinationClassName="com.example.smartviewer.CommandPackage"/>
+    </Class>
+    <Class name="com.example.smartviewer.MyService" x="-25" y="569">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+        <Association
+            destinationClassName="com.example.smartviewer.MySocket"
+            endpointName="myClientSocketList" kind="Simple">
+            <Point x="229" y="513"/>
+        </Association>
+        <Association
+            destinationClassName="com.example.smartviewer.MySocket"
+            endpointName="pausedSocketListTemp" kind="Simple">
+            <Point x="34" y="535"/>
+        </Association>
+        <Communication destinationClassName="com.example.smartviewer.MySocket"/>
+    </Class>
+    <Class name="com.example.smartviewer.CommandPacker" x="105" y="5">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+    </Class>
+    <Class name="com.example.smartviewer.CommandPackage" x="513" y="276">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+    </Class>
+    <Class name="com.example.smartviewer.AHCommandPacker" x="8" y="77">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+        <Extension destinationClassName="com.example.smartviewer.CommandPacker"/>
+        <Communication destinationClassName="com.example.smartviewer.CommandPackage"/>
+    </Class>
+</ClassDiagram>

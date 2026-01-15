@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:compileSdkVersion="33" android:compileSdkVersionCodename="13" package="com.deltaww.smartviewer01" platformBuildVersionCode="33" platformBuildVersionName="13">
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:maxSdkVersion="30" android:name="android.permission.BLUETOOTH"/>
+    <uses-permission android:maxSdkVersion="30" android:name="android.permission.BLUETOOTH_ADMIN"/>
+    <uses-permission android:name="android.permission.BLUETOOTH_PRIVILEGED"/>
+    <uses-permission android:name="android.permission.BLUETOOTH_CONNECT"/>
+    <uses-permission android:name="android.permission.BLUETOOTH_ADVERTISE"/>
+    <uses-permission android:name="android.permission.BLUETOOTH_SCAN"/>
+    <uses-feature android:name="android.hardware.bluetooth_le" android:required="false"/>
+    <application android:allowBackup="false" android:appComponentFactory="androidx.core.app.CoreComponentFactory" android:icon="@drawable/app_launcher" android:label="@string/app_info_name" android:theme="@style/AppTheme">
+        <provider android:authorities="com.deltaww.smartviewer01.fileprovider" android:exported="false" android:grantUriPermissions="true" android:name="androidx.core.content.FileProvider">
+            <meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/file_paths"/>
+        </provider>
+        <activity android:configChanges="keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize" android:label="@string/app_name" android:launchMode="singleTask" android:name="com.deltaww.smartviewer01.userinterface.MonitorGraphActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize" android:label="@string/app_name" android:launchMode="singleTask" android:name="com.deltaww.smartviewer01.userinterface.MonitorListActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize" android:label="@string/title_activity_load_history" android:name="com.deltaww.smartviewer01.userinterface.LoadHistoryActivity">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value="android.app.ListActivity"/>
+        </activity>
+        <activity android:configChanges="orientation|screenLayout|screenSize|smallestScreenSize" android:label="@string/download_activity" android:launchMode="singleTask" android:name="com.deltaww.smartviewer01.userinterface.DownloadActivity" android:windowSoftInputMode="stateHidden">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value="com.deltaww.smartviewer01.userinterface.GuildActivity"/>
+        </activity>
+        <activity android:configChanges="orientation|screenLayout|screenSize|smallestScreenSize" android:label="@string/scan_activity_label" android:launchMode="singleTask" android:name="com.deltaww.smartviewer01.userinterface.BluetoothScanner.BluetoothScanListActivity" android:windowSoftInputMode="stateHidden">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value="com.deltaww.smartviewer01.userinterface.DownloadActivity"/>
+        </activity>
+        <activity android:configChanges="orientation|screenLayout|screenSize|smallestScreenSize" android:exported="true" android:label="@string/scan_activity_label" android:launchMode="singleTask" android:name="com.deltaww.smartviewer01.userinterface.BluetoothScanner.BLEScanListActivity" android:windowSoftInputMode="stateHidden">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value="com.deltaww.smartviewer01.userinterface.DownloadActivity"/>
+        </activity>
+        <activity android:exported="true" android:label="@string/app_name" android:name="com.deltaww.smartviewer01.userinterface.GuildActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity android:label="@string/menu_import" android:name="com.deltaww.smartviewer01.userinterface.LoadProfileActivity"/>
+        <activity android:configChanges="orientation|screenSize|smallestScreenSize" android:label="Settings" android:name="com.deltaww.smartviewer01.userinterface.MainSettings.SettingsActivity" android:windowSoftInputMode="stateHidden|adjustResize"/>
+        <activity android:configChanges="orientation|screenSize|smallestScreenSize" android:label="Help" android:name="com.deltaww.smartviewer01.HelpActivity"/>
+        <service android:name="com.deltaww.smartviewer01.Communication.Services.WiFiService"/>
+        <service android:name="com.deltaww.smartviewer01.Communication.Services.BluetoothClassicService"/>
+        <service android:name="com.deltaww.smartviewer01.Communication.Services.BluetoothLeService"/>
+        <meta-data android:name="com.android.dynamic.apk.fused.modules" android:value="base"/>
+        <meta-data android:name="com.android.stamp.source" android:value="https://play.google.com/store"/>
+        <meta-data android:name="com.android.stamp.type" android:value="STAMP_TYPE_STANDALONE_APK"/>
+        <meta-data android:name="com.android.vending.splits" android:resource="@xml/splits0"/>
+        <meta-data android:name="com.android.vending.derived.apk.id" android:value="3"/>
+    </application>
+</manifest>

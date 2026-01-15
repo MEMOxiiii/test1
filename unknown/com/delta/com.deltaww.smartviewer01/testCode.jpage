@@ -1,0 +1,6 @@
+long aa1 = 0x1234;
+int aa2 = 0x1234;
+System.out.println(String.valueOf(~aa1));
+System.out.println(String.valueOf(~aa2));
+System.out.println(String.valueOf(~aa1 + 1 ));
+System.out.println(String.valueOf(~aa1 + 2 ));
